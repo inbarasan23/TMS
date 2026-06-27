@@ -4,7 +4,6 @@ import Navigation from '../components/Navigation';
 
 const RoomMaster = () => {
     const [rooms, setRooms] = useState([]);
-    const [departments, setDepartments] = useState([]);
     const [programmes, setProgrammes] = useState([]);
     const [blocks, setBlocks] = useState([]);
     const [formData, setFormData] = useState({ department: '', programme: '', block: '', roomNumber: '' });
@@ -17,10 +16,7 @@ const RoomMaster = () => {
         try { const { data } = await API.get('/master/room'); setRooms(data); }
         catch (err) { console.error('Error fetching rooms', err); }
     };
-    const fetchDepartments = async () => {
-        try { const { data } = await API.get('/master/department'); setDepartments(data); }
-        catch (err) { console.error('Error fetching departments', err); }
-    };
+
     const fetchProgrammes = async () => {
         try {
             const { data } = await API.get('/master/programme');

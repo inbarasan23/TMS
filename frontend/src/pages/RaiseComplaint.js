@@ -7,7 +7,6 @@ const RaiseComplaint = () => {
         department: '', programme: '', block: '', blockName: '', roomNumber: '',
         complaintType: 'PC Hardware', complaintRemarks: '', attachment: ''
     });
-    const [departments, setDepartments] = useState([]);
     const [programmes, setProgrammes] = useState([]);
     const [blocks, setBlocks] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,10 +14,7 @@ const RaiseComplaint = () => {
 
     useEffect(() => { fetchProgrammes(); }, []);
 
-    const fetchDepartments = async () => {
-        try { const { data } = await API.get('/master/department'); setDepartments(data); }
-        catch (err) { setMessage({ type: 'error', text: 'Error fetching departments' }); }
-    };
+  
     const fetchProgrammes = async () => {
         try {
             const { data } = await API.get('/master/programme');

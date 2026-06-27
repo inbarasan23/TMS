@@ -4,7 +4,6 @@ import Navigation from '../components/Navigation';
 
 const BlockMaster = () => {
     const [blocks, setBlocks] = useState([]);
-    const [departments, setDepartments] = useState([]);
     const [programmes, setProgrammes] = useState([]);
     const [formData, setFormData] = useState({ department: '', programme: '', blockName: '' });
     const [loading, setLoading] = useState(false);
@@ -17,10 +16,7 @@ const BlockMaster = () => {
         catch (err) { setMessage({ type: 'error', text: 'Error fetching blocks' }); }
     };
 
-    const fetchDepartments = async () => {
-        try { const { data } = await API.get('/master/department'); setDepartments(data); }
-        catch (err) { setMessage({ type: 'error', text: 'Error fetching departments' }); }
-    };
+
 
     const fetchProgrammes = async () => {
         try {

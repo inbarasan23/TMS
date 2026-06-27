@@ -17,7 +17,6 @@ const UserMaster = () => {
         userName: '', email: '', password: '', phoneNumber: '', role: 'User', department: '', programme: ''
     });
     const [loading, setLoading] = useState(false);
-    const [departments, setDepartments] = useState([]);
     const [programmes, setProgrammes] = useState([]);
     const [message, setMessage] = useState('');
 
@@ -29,10 +28,7 @@ const UserMaster = () => {
         try { const { data } = await API.get('/master/users'); setUsers(data); }
         catch (err) { console.error('Error fetching users', err); }
     };
-    const fetchDepartments = async () => {
-        try { const { data } = await API.get('/master/department'); setDepartments(data); }
-        catch (err) { console.error('Error fetching departments', err); }
-    };
+
     const fetchProgrammes = async () => {
         try {
             const { data } = await API.get('/master/programme');
